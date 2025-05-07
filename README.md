@@ -25,7 +25,7 @@ Este sistema fornece uma interface simples e intuitiva para gerenciar usuários,
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/cadastro-usuarios-flask.git
+   git clone https://github.com/cezardsilva/cadastro-usuarios-flask.git
 
 2. Instale as dependências:
    ```sh
