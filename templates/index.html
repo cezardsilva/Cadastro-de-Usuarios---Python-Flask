@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pb-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='assets/user.png') }}?v=2">
+    <title>Cadastro de Usuários</title>
+</head>
+
+<body>
+    <div class='container'>
+        <h1>Cadastro de Usuários</h1>
+        <div class='formulario'>
+            <form action="/add" method="post">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="number" name="idade" placeholder="Idade" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="telefone" placeholder="Telefone" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+        <h2>Usuários Cadastrados</h2>
+        <div class="tabela">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ação</th>
+                </tr>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.id }}</td>
+                    <td>{{ usuario.nome }}</td>
+                    <td>{{ usuario.idade }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.telefone }}</td>
+                    <td>
+                        <button class='delete'>
+                            <a href="/delete/{{ usuario.id }}" class="delete-link">Excluir</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
